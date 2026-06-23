@@ -2,7 +2,7 @@ import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import { IoClose } from "react-icons/io5";
 import Rating from '@mui/material/Rating';
-import { IoIosHeartEmpty } from "react-icons/io";
+// import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOpenInNew } from "react-icons/md";
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import ShareButton from '../ShareButton';
@@ -12,6 +12,7 @@ import ProductZoom from '../ProductZoom';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../../App';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const ProductModal = (props) => {
     const { product } = props;
@@ -21,6 +22,7 @@ const ProductModal = (props) => {
     const [selectedWeight, setSelectedWeight] = useState(0);
     const [reviewCount, setReviewCount] = useState(0);
     const [avgRating, setAvgRating] = useState(0);
+    const [inWishlist, setInWishlist] = useState(false);
 
     useEffect(() => {
         if (product?.weightOptions) {
@@ -43,11 +45,47 @@ const ProductModal = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [product?.id]);
 
+    useEffect(()=> {
+        const token = localStorage.getItem('token');
+        if(!token || !product) return;
+
+        fetch(`http://localhost:5000/api/wishlist/check/${product.id}`, {
+            headers: {Authorization: `Bearer ${token}`}
+        })
+
+        .then(r => r.json())
+        .then(data => { if(data.success) setInWishlist(data.inWishlist); })
+        .catch(() => {});
+    }, [product?.id]);
+
     if (!product) return null;
 
     const activeOption = product.weightOptions
         ? product.weightOptions[selectedWeight]
         : { oldPrice: product.oldPrice, newPrice: product.newPrice };
+
+    const handleWishlist = async () => {
+        const token = localStorage.getItem('token');
+        if(!token) {
+            alert('Log in first!');
+            return;
+        }
+
+        if(inWishlist) {
+            await fetch(`http://localhost:5000/api/wishlist/${product.id}`, {
+                method: 'DELETE',
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            setInWishlist(false);
+            context.setWishlistCount(prev => Math.max(0, prev - 1));
+        }
+
+        else {
+            await context.addToWishlist(product, selectedWeight);
+            setInWishlist(true);
+        }
+    };
 
     const goToDetails = () => {
         props.closeProductModadl(); // tumhara original typo
@@ -147,8 +185,13 @@ const ProductModal = (props) => {
                     </div>
 
                     <div className='d-flex align-items-center mt-4 actions'>
-                        <Button className='btn-round btn-sml' variant="outlined">
-                            <IoIosHeartEmpty /> &nbsp; Add To Wishlist
+                        <Button className='btn-round btn-sml' 
+                            variant="outlined"
+                            onClick={handleWishlist}
+                            style={{ color: inWishlist ? '#e91e8c' : '', borderColor: inWishlist ? '#e91e8c' : '' }}
+                        >
+                            {inWishlist ? <FaHeart style={{ color: '#e91e8c' }} /> : <FaRegHeart />}
+                            &nbsp; {inWishlist ? 'It is in the wishlist. ❤️' : 'Add To Wishlist'}
                         </Button>
                         <ShareButton
                             productName={product.name}

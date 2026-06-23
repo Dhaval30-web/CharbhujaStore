@@ -59,7 +59,7 @@ const CityDropdown = () => {
                         {
                             context.selectedArea !== "" 
                             ? context.selectedArea.length>10 ?
-                            context.selectedArea ?.substr(0,10)+'...' :
+                            context.selectedArea ?.substr(0,10)+'...':
                             context.selectedArea
                             : 'Select Location'
                         }

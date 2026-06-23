@@ -46,6 +46,54 @@ import P15M from '../Assets/Images/Products/15-M.png';
 import P16 from '../Assets/Images/Products/16.png';
 import P16B from '../Assets/Images/Products/16-B.png';
 import P16M from '../Assets/Images/Products/16-M.png';
+import P17 from '../Assets/Images/Products/17.png';
+import P17B from '../Assets/Images/Products/17-B.png';
+import P17M from '../Assets/Images/Products/17-M.png';
+import P18 from '../Assets/Images/Products/18.png';
+import P18B from '../Assets/Images/Products/18-B.png';
+import P18M from '../Assets/Images/Products/18-M.png';
+import P19 from '../Assets/Images/Products/19.png';
+import P19B from '../Assets/Images/Products/19-B.png';
+import P19M from '../Assets/Images/Products/19-M.png';
+import P20 from '../Assets/Images/Products/20.png';
+import P20B from '../Assets/Images/Products/20-B.png';
+import P20M from '../Assets/Images/Products/20-M.png';
+import P21 from '../Assets/Images/Products/21.png';
+import P21B from '../Assets/Images/Products/21-B.png';
+import P21M from '../Assets/Images/Products/21-M.png';
+import P22 from '../Assets/Images/Products/22.png';
+import P22B from '../Assets/Images/Products/22-B.png';
+import P22M from '../Assets/Images/Products/22-M.png';
+import P23 from '../Assets/Images/Products/23.png';
+import P23B from '../Assets/Images/Products/23-B.png';
+import P23M from '../Assets/Images/Products/23-M.png';
+import P24 from '../Assets/Images/Products/24.png';
+import P24B from '../Assets/Images/Products/24-B.png';
+import P24M from '../Assets/Images/Products/24-M.png';
+import P25 from '../Assets/Images/Products/25.png';
+import P25B from '../Assets/Images/Products/25-B.png';
+import P25M from '../Assets/Images/Products/25-M.png';
+import P26 from '../Assets/Images/Products/26.png';
+import P26B from '../Assets/Images/Products/26-B.png';
+import P26M from '../Assets/Images/Products/26-M.png';
+import P27 from '../Assets/Images/Products/27.png';
+import P27B from '../Assets/Images/Products/27-B.png';
+import P27M from '../Assets/Images/Products/27-M.png';
+import P28 from '../Assets/Images/Products/28.png';
+import P28B from '../Assets/Images/Products/28-B.png';
+import P28M from '../Assets/Images/Products/28-M.png';
+import P29 from '../Assets/Images/Products/29.png';
+import P29B from '../Assets/Images/Products/29-B.png';
+import P29M from '../Assets/Images/Products/29-M.png';
+import P30 from '../Assets/Images/Products/30.png';
+import P30B from '../Assets/Images/Products/30-B.png';
+import P30M from '../Assets/Images/Products/30-M.png';
+import P31 from '../Assets/Images/Products/31.png';
+import P31B from '../Assets/Images/Products/31-B.png';
+import P31M from '../Assets/Images/Products/31-M.png';
+import P32 from '../Assets/Images/Products/32.png';
+import P32B from '../Assets/Images/Products/32-B.png';
+import P32M from '../Assets/Images/Products/32-M.png';
 
 const productsData = [
     {
@@ -76,6 +124,7 @@ const productsData = [
             tags: "cardamom, natural, organic, export quality"
         }
     },
+
     {
         id: 2,
         name: "Premium Californian Almonds",
@@ -100,10 +149,11 @@ const productsData = [
             weight: "1kg (Value Pack)",
             mfgDate: "01/04/2026",
             expDate: "31/03/2027",
-            category: "Dry Fruits",
+            category: "Grocery",
             tags: "almonds, natural, healthy, protein"
         }
     },
+
     {
         id: 3,
         name: "Premium Californian Pistachios",
@@ -128,10 +178,11 @@ const productsData = [
             weight: "1kg (Value Pack)",
             mfgDate: "01/03/2026",
             expDate: "28/02/2027",
-            category: "Dry Fruits",
+            category: "Grocery",
             tags: "pistachios, natural, healthy, crunchy"
         }
     },
+
     {
         id: 4,
         name: "Premium Goa Masala Cashew",
@@ -160,6 +211,7 @@ const productsData = [
             tags: "cashews, goa masala, spicy, snack"
         }
     },
+
     {
         id: 5,
         name: "Organic Rajasthani Chilli Powder",
@@ -188,6 +240,7 @@ const productsData = [
             tags: "chilli, organic, rajasthani, spicy"
         }
     },
+
     {
         id: 6,
         name: "Organic Rajasthani Turmeric Powder",
@@ -216,6 +269,7 @@ const productsData = [
             tags: "turmeric, organic, rajasthani, haldi"
         }
     },
+
     {
         id: 7,
         name: "Organic Rajasthani Coriander Powder",
@@ -269,14 +323,14 @@ const productsData = [
             weight: "5kg (Value Pack)",
             mfgDate: "01/05/2026",
             expDate: "30/04/2027",
-            category: "Atta & Flour",
+            category: "Grocery",
             tags: "gehu, aata, wheat flour, natural, healthy, whole wheat"
         }
     },
 
     {
         id: 9,
-        name: "Premium Gujarati Toor Dal",
+        name: "Premium Gujarati Toor Daal",
         brand: "Charbhuja",
         rating: 4,
         oldPrice: 800,
@@ -285,7 +339,7 @@ const productsData = [
         stock: true,
         isBestSeller: false,
         isNew: true,
-        description: "Premium Quality Toor Dal — Rich in Protein, Natural & Healthy. Carefully selected and hygienically packed for authentic taste, faster cooking, and delicious everyday meals.",
+        description: "Premium Quality Toor Daal — Rich in Protein, Natural & Healthy. Carefully selected and hygienically packed for authentic taste, faster cooking, and delicious everyday meals.",
         images: [P9, P9B, P9M],
         weightOptions: [
             { label: "1kg", oldPrice: 160, newPrice: 144 },
@@ -298,7 +352,7 @@ const productsData = [
             weight: "5kg (Value Pack)",
             mfgDate: "01/05/2026",
             expDate: "30/04/2027",
-            category: "Dal & Pulses",
+            category: "Grocery",
             tags: "toor dal, arhar dal, premium dal, protein rich, healthy, natural"
         }
     },
@@ -327,7 +381,7 @@ const productsData = [
             weight: "1kg (Value Pack)",
             mfgDate: "01/05/2026",
             expDate: "30/04/2027",
-            category: "Dry Fruits",
+            category: "Grocery",
             tags: "anjeer, dried figs, premium dry fruits, healthy snacks, fiber rich, natural"
         }
     },
@@ -356,7 +410,7 @@ const productsData = [
             weight: "1kg (Value Pack)",
             mfgDate: "01/05/2026",
             expDate: "30/04/2027",
-            category: "Dry Fruits",
+            category: "Grocery",
             tags: "kishmish, raisins, premium dry fruits, healthy snacks, natural sweetness, energy rich"
         }
     },
@@ -385,7 +439,7 @@ const productsData = [
             weight: "1kg (Value Pack)",
             mfgDate: "01/05/2026",
             expDate: "30/04/2027",
-            category: "Dry Fruits",
+            category: "Grocery",
             tags: "akhrot, walnuts, premium dry fruits, healthy snacks, protein rich, natural"
         }
     },
@@ -503,6 +557,466 @@ const productsData = [
             expDate: "30/04/2027",
             category: "Spices & Masala",
             tags: "garam masala, mix masala, spice mix, blend, masala mix, natural, fresh"
+        }
+    },
+
+    {
+        id: 17,
+        name: "Premium Bay Leaf (Tej Patta)",
+        brand: "Charbhuja",
+        rating: 4,
+        oldPrice: 300,
+        newPrice: 270,
+        discount: 10,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Bay Leaf (Tej Patta) — Rich Aroma, Distinct Flavor & Naturally Fresh. Carefully selected whole bay leaves packed with intense fragrance and authentic taste, perfect for biryanis, curries, soups, and everyday Indian cooking.",
+        images: [P17, P17B, P17M],
+        weightOptions: [
+            { label: "250g", oldPrice: 75,  newPrice: 68 },
+            { label: "500g", oldPrice: 150, newPrice: 135 },
+            { label: "1kg",  oldPrice: 300, newPrice: 270 },
+            { label: "5kg",  oldPrice: 1500, newPrice: 1350 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "1kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Spices & Masala",
+            tags: "bay leaf, tej patta, dry aromatics, aromatic, javitri, natural, fresh"
+        }
+    },
+
+    {
+        id: 18,
+        name: "Premium Moong Daal",
+        brand: "Charbhuja",
+        rating: 4,
+        oldPrice: 700,
+        newPrice: 650,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Mung Daal — Rich in Protein, Natural & Healthy. Carefully selected and hygienically packed for authentic taste, faster cooking, and delicious everyday meals.",
+        images: [P18, P18B, P18M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 140,  newPrice: 130 },
+            { label: "2kg",  oldPrice: 280, newPrice: 260 },
+            { label: "5kg",  oldPrice: 700, newPrice: 650 },
+            { label: "10kg", oldPrice: 1400, newPrice: 1300 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "moong dal, daal, dal, protein rich, healthy, natural"
+        }
+    },
+
+    {
+        id: 19,
+        name: "Premium Basmati Rice",
+        brand: "Charbhuja",
+        rating: 4.5,
+        oldPrice: 600,
+        newPrice: 550,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Basmati Rice — Long Grain, Aromatic & Naturally Fresh. Carefully selected and hygienically packed for authentic taste, fluffy texture, and delicious everyday meals.",
+        images: [P19, P19B, P19M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 120, newPrice: 110 },
+            { label: "2kg",  oldPrice: 240, newPrice: 220 },
+            { label: "5kg",  oldPrice: 600, newPrice: 550 },
+            { label: "10kg", oldPrice: 1200, newPrice: 1100 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "basmati rice, rice, chawal, anaj, grain, aromatic, natural"
+        }
+    },
+
+    {
+        id: 20,
+        name: "Premium Daliya (Broken Wheat)",
+        brand: "Charbhuja",
+        rating: 4,
+        oldPrice: 250,
+        newPrice: 225,
+        discount: 10,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Daliya (Broken Wheat) — Rich in Fiber, Natural & Healthy. Carefully selected and hygienically packed for authentic taste, easy digestion, and delicious everyday meals.",
+        images: [P20, P20B, P20M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 50,  newPrice: 45 },
+            { label: "2kg",  oldPrice: 100, newPrice: 90 },
+            { label: "5kg",  oldPrice: 250, newPrice: 225 },
+            { label: "10kg", oldPrice: 500, newPrice: 450 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "daliya, broken wheat, anaj, grain, fiber rich, natural, healthy"
+        }
+    },
+
+    {
+        id: 21,
+        name: "Premium Poha (Flattened Rice)",
+        brand: "Charbhuja",
+        rating: 4.5,
+        oldPrice: 300,
+        newPrice: 270,
+        discount: 6,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Poha (Flattened Rice) — Light, Crispy & Naturally Fresh. Carefully selected and hygienically packed for authentic taste, quick cooking, and delicious everyday breakfast.",
+        images: [P21, P21B, P21M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 60,  newPrice: 54 },
+            { label: "2kg",  oldPrice: 120,  newPrice: 108 },
+            { label: "5kg",  oldPrice: 300, newPrice: 270 },
+            { label: "10kg", oldPrice: 600, newPrice: 540 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "poha, flattened rice, anaj, grain, rice, natural, fresh"
+        }
+    },
+
+    {
+        id: 22,
+        name: "Aashirvaad MP Sharbati Aata",
+        brand: "Aashirvaad",
+        rating: 4,
+        oldPrice: 230,
+        newPrice: 215,
+        discount: 7,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Aata (Wheat Flour) — Pure, Natural & Healthy. Stone-ground from finest quality wheat, perfect for soft rotis and parathas every time.",
+        images: [P22, P22B, P22M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 46,  newPrice: 43 },
+            { label: "2kg",  oldPrice: 92,  newPrice: 86 },
+            { label: "5kg",  oldPrice: 230, newPrice: 215 },
+            { label: "10kg", oldPrice: 460, newPrice: 430 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "aata, atta, wheat flour, natural, healthy, whole wheat"
+        }
+    },
+
+    {
+        id: 23,
+        name: "Premium Besan (Gram Flour)",
+        brand: "Aashirvaad",
+        rating: 4.5,
+        oldPrice: 260,
+        newPrice: 240,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Besan (Gram Flour) — Pure, Natural & Healthy. Stone-ground from finest quality chana dal, perfect for pakoras, kadhi, and sweets every time.",
+        images: [P23, P23B, P23M],
+        weightOptions: [
+            { label: "1kg",  oldPrice: 52,  newPrice: 48 },
+            { label: "2kg",  oldPrice: 104, newPrice: 96 },
+            { label: "5kg",  oldPrice: 260, newPrice: 240 },
+            { label: "10kg", oldPrice: 520, newPrice: 480 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "besan, gram flour, atta, flour, natural, healthy"
+        }
+    },
+
+    {
+        id: 24,
+        name: "Premium Maida (Refined Flour)",
+        brand: "Fortune",
+        rating: 4,
+        oldPrice: 220,
+        newPrice: 200,
+        discount: 9,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Maida (Refined Flour) — Fine, Smooth & Naturally Fresh. Finely milled refined flour, perfect for bread, pastries, and bakery items every time.",
+        images: [P24, P24B, P24M],
+        weightOptions: [
+            { label: "500g", oldPrice: 22,  newPrice: 20 },
+            { label: "1kg",  oldPrice: 44,  newPrice: 40 },
+            { label: "2kg",  oldPrice: 88,  newPrice: 80 },
+            { label: "5kg",  oldPrice: 220, newPrice: 200 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "maida, refined flour, atta, flour, natural, fresh"
+        }
+    },
+
+    {
+        id: 25,
+        name: "Tirupati Refine Cottonseed Oil",
+        brand: "Tirupati",
+        rating: 4,
+        oldPrice: 150,
+        newPrice: 138,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Cottonseed Oil — Pure, Natural & Healthy. Carefully refined for everyday cooking, perfect for frying, sautéing, and traditional Indian dishes.",
+        images: [P25, P25B, P25M],
+        weightOptions: [
+            { label: "1L",   oldPrice: 150,  newPrice: 138 },
+            { label: "5L",   oldPrice: 750,  newPrice: 690 },
+            { label: "15kg", oldPrice: 1500, newPrice: 1380 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "15kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "cottonseed oil, oil, ghee, cooking oil, natural, healthy"
+        }
+    },
+
+    {
+        id: 26,
+        name: "Tirupati Kachi Ghani Mustard Oil",
+        brand: "Tirupati",
+        rating: 4.5,
+        oldPrice: 160,
+        newPrice: 147,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Mustard Oil — Pure, Natural & Healthy. Cold-pressed for authentic pungency, perfect for frying, pickling, and traditional Indian dishes.",
+        images: [P26, P26B, P26M],
+        weightOptions: [
+            { label: "1L",   oldPrice: 160,  newPrice: 147 },
+            { label: "5L",   oldPrice: 800,  newPrice: 735 },
+            { label: "15kg", oldPrice: 1600, newPrice: 1470 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "15kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "mustard oil, oil, ghee, cooking oil, natural, healthy"
+        }
+    },
+
+    {
+        id: 27,
+        name: "Premium Filtered Groundnut Oil",
+        brand: "Tirupati",
+        rating: 4,
+        oldPrice: 175,
+        newPrice: 161,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Filtered Groundnut Oil — Pure, Natural & Healthy. Carefully filtered for rich aroma and authentic taste, perfect for frying, cooking, and traditional Indian dishes.",
+        images: [P27, P27B, P27M],
+        weightOptions: [
+            { label: "1L",   oldPrice: 175,  newPrice: 161 },
+            { label: "5L",   oldPrice: 875,  newPrice: 805 },
+            { label: "15kg", oldPrice: 1750, newPrice: 1610 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "15kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "groundnut oil, filtered oil, oil, ghee, cooking oil, natural, healthy"
+        }
+    },
+
+    {
+        id: 28,
+        name: "Premium Amul Pure Ghee",
+        brand: "Amul",
+        rating: 4.5,
+        oldPrice: 640,
+        newPrice: 590,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Amul Pure Ghee — Rich Aroma, Authentic Taste & Naturally Fresh. Made from fresh cream, perfect for cooking, frying, and traditional Indian dishes.",
+        images: [P28, P28B, P28M],
+        weightOptions: [
+            { label: "500ml", oldPrice: 320,  newPrice: 295 },
+            { label: "1L",    oldPrice: 640,  newPrice: 590 },
+            { label: "5kg",   oldPrice: 3200, newPrice: 2950 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "5kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "amul ghee, pure ghee, ghee, oil, natural, fresh"
+        }
+    },
+
+    {
+        id: 29,
+        name: "Premium Sea Salt",
+        brand: "Charbhuja",
+        rating: 3.5,
+        oldPrice: 40,
+        newPrice: 36,
+        discount: 10,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Sea Salt — Pure, Natural & Mineral Rich. Naturally harvested from pristine sea water, perfect for everyday cooking, seasoning, and traditional Indian dishes.",
+        images: [P29, P29B, P29M],
+        weightOptions: [
+            { label: "500g", oldPrice: 20,  newPrice: 18 },
+            { label: "1kg",  oldPrice: 40,  newPrice: 36 },
+            { label: "2kg",  oldPrice: 80,  newPrice: 72 },
+            { label: "5kg",  oldPrice: 200, newPrice: 180 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "1kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "sea salt, salt, condiments, natural, mineral rich, fresh"
+        }
+    },
+
+    {
+        id: 30,
+        name: "Premium Black Salt (Kala Namak)",
+        brand: "Charbhuja",
+        rating: 4,
+        oldPrice: 44,
+        newPrice: 40,
+        discount: 9,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Black Salt (Kala Namak) — Pure, Natural & Mineral Rich. Carefully sourced for authentic taste, perfect for chaat, raita, salads, and traditional Indian dishes.",
+        images: [P30, P30B, P30M],
+        weightOptions: [
+            { label: "500g", oldPrice: 22,  newPrice: 20 },
+            { label: "1kg",  oldPrice: 44,  newPrice: 40 },
+            { label: "2kg",  oldPrice: 88,  newPrice: 80 },
+            { label: "5kg",  oldPrice: 220, newPrice: 200 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "1kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "black salt, kala namak, salt, condiment, natural, mineral rich, fresh"
+        }
+    },
+    
+    {
+        id: 31,
+        name: "Premium Rock Salt (Sendha Namak)",
+        brand: "Charbhuja",
+        rating: 4.5,
+        oldPrice: 42,
+        newPrice: 38,
+        discount: 9,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Rock Salt (Sendha Namak) — Pure, Natural & Mineral Rich. Carefully sourced for authentic taste, perfect for fasting recipes, salads, and traditional Indian dishes.",
+        images: [P31, P31B, P31M],
+        weightOptions: [
+            { label: "500g", oldPrice: 21,  newPrice: 19 },
+            { label: "1kg",  oldPrice: 42,  newPrice: 38 },
+            { label: "2kg",  oldPrice: 84,  newPrice: 76 },
+            { label: "5kg",  oldPrice: 210, newPrice: 190 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "1kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "rock salt, sendha namak, salt, condiment, natural, mineral rich, fresh"
+        }
+    },
+
+    {
+        id: 32,
+        name: "Premium Chaat Masala",
+        brand: "Charbhuja",
+        rating: 4.5,
+        oldPrice: 48,
+        newPrice: 44,
+        discount: 8,
+        stock: true,
+        isBestSeller: false,
+        isNew: false,
+        description: "Premium Quality Chaat Masala — Tangy, Spicy & Naturally Fresh. Carefully blended for authentic flavor, perfect for chaat, fruits, salads, and traditional Indian snacks.",
+        images: [P32, P32B, P32M],
+        weightOptions: [
+            { label: "500g", oldPrice: 24,  newPrice: 22 },
+            { label: "1kg",  oldPrice: 48,  newPrice: 44 },
+            { label: "2kg",  oldPrice: 96,  newPrice: 88 },
+            { label: "5kg",  oldPrice: 240, newPrice: 220 },
+        ],
+        meta: {
+            type: "100% Natural & Pure",
+            weight: "1kg (Value Pack)",
+            mfgDate: "01/05/2026",
+            expDate: "30/04/2027",
+            category: "Grocery",
+            tags: "chaat masala, masala, condiment, tangy, spicy, natural, fresh"
         }
     },
 ];

@@ -3,10 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
-import { IoIosHeartEmpty } from 'react-icons/io';
+// import { IoIosHeartEmpty } from 'react-icons/io';
 import { FaChevronRight, FaStar } from 'react-icons/fa';
 import { IoCheckmarkCircle } from 'react-icons/io5';
 import { MdVerified } from 'react-icons/md';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import ProductZoom from '../../Components/ProductZoom';
 import QuantityBox from '../../Components/QuantityBox';
 import ShareButton from '../../Components/ShareButton';
@@ -84,6 +85,7 @@ const ProductDetails = () => {
     const [submitting, setSubmitting] = useState(false);
     const [submitMsg, setSubmitMsg] = useState(null);
     const [form, setForm] = useState({ name: '', rating: 0, comment: '' });
+    const [inWishlist, setInWishlist] = useState(false);
 
     useEffect(() => {
         if (product?.weightOptions) {
@@ -91,6 +93,19 @@ const ProductDetails = () => {
             setSelectedWeight(idx !== -1 ? idx : 0);
         }
     }, [product]);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(!token || !product) return;
+
+        fetch(`http://localhost:5000/api/wishlist/check/${product.id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+
+        .then(r => r.json())
+        .then(data => { if (data.success) setInWishlist(data.inWishlist); })
+        .catch(() => {});
+    }, [product?.id]);
 
     const fetchReviews = async () => {
         if (!product) return;
@@ -132,6 +147,26 @@ const ProductDetails = () => {
     const activeOption = product.weightOptions
         ? product.weightOptions[selectedWeight]
         : { oldPrice: product.oldPrice, newPrice: product.newPrice };
+
+    const handleWishlist = async () => {
+        const token = localStorage.getItem('token');
+        if(!token) { alert('Log in first!'); return; }
+
+        if(inWishlist) {
+            await fetch(`http://localhost:5000/api/wishlist/${product.id}`, {
+                method: 'DELETE',
+                headers: {Authorization: `Bearer ${token}`}
+            });
+
+            setInWishlist(false);
+            context.setWishlistCount(prev => Math.max(0, prev - 1));
+        }
+
+        else {
+            await context.addToWishlist(product, selectedWeight);
+            setInWishlist(true);
+        }
+    };
 
     const handleSubmit = async () => {
         if (!form.name.trim() || !form.comment.trim() || form.rating === 0) {
@@ -253,8 +288,13 @@ const ProductDetails = () => {
 
                         {/* Wishlist + Share */}
                         <div className="d-flex align-items-center gap-2 mb-3 flex-wrap actions">
-                            <Button className="btn-round btn-sml" variant="outlined">
-                                <IoIosHeartEmpty /> &nbsp; Add To Wishlist
+                            <Button className="btn-round btn-sml" 
+                                variant="outlined"
+                                onClick={handleWishlist}
+                                style={{ color: inWishlist ? '#e91e8c' : '', borderColor: inWishlist ? '#e91e8c' : '' }}    
+                            >
+                                {inWishlist ? <FaHeart style={{ color: '#e91e8c' }} /> : <FaRegHeart />}
+                                &nbsp; {inWishlist ? 'It is in the Wishlist. ❤️' : 'Add To Wishlist'}
                             </Button>
                             <ShareButton productName={product.name} productUrl={window.location.href} />
                         </div>

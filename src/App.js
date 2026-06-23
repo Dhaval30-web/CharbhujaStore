@@ -6,25 +6,26 @@ import Profile from './Pages/Home/Profile';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Index';
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
-import { useEffect } from "react";
 import Footer from "./Components/Footer";
 import Listing from "./Pages/Home/Listing";
 import ProductDetails from "./Pages/ProductDetails";
 import ContactPage from "./Pages/ContactUs";
 import Cart from "./Pages/Cart";
 import SpicesPage from "./Pages/Home/Spices/index";
+import GroceryPage from "./Pages/Home/Grocery/index";
 import CartToast from './Components/CartToast';
-import PageLoader from './Components/Loader'; 
-// import CharbhujaAdmin from "./Pages/Admin/CharbhujaAdmin";
+import WishlistToast from './Components/WishlistToast';
+import WishlistPage from './Pages/Wishlist';
+import PageLoader from './Components/Loader';
 
 const MyContext = createContext();
 
 function App() {
 
   const [isLoading, setIsLoading] = useState(true);
-  const [fadeOut, setFadeOut]     = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,12 +38,13 @@ function App() {
   const [areaList, setAreaList] = useState([]);
   const [selectedArea, setSelectedArea] = useState('');
 
+  // Cart
   const [cartItems, setCartItems] = useState(() => {
     try {
-        const saved = localStorage.getItem('cartItems');
-        return saved ? JSON.parse(saved) : [];
+      const saved = localStorage.getItem('cartItems');
+      return saved ? JSON.parse(saved) : [];
     } catch {
-        return [];
+      return [];
     }
   });
 
@@ -52,17 +54,69 @@ function App() {
 
   const [toastItem, setToastItem] = useState(null);
 
-  useEffect(()=> {
-    getArea("http://localhost:5000/api/cities/Ahmedabad/areas");
-    // getArea("http://localhost:5000/api/cities/Gandhinagar/areas");
-  },[]);
+  // Wishlist
+  const [wishlistCount, setWishlistCount] = useState(0);
+  const [wishlistToastItem, setWishlistToastItem] = useState(null);
 
-  // const getArea = async(url)=>{
-  //   const resposnsive = await axios.get(url).then((res)=> {
-  //     setAreaList(res.data.areas)
-  //     console.log(res.data.areas);
-  //   })
-  // }
+  const fetchWishlistCount = useCallback(async () => {
+    const token = localStorage.getItem('token');
+    if (!token) { setWishlistCount(0); return; }
+    try {
+      const res = await fetch('http://localhost:5000/api/wishlist', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await res.json();
+      if (data.success) setWishlistCount(data.count);
+    } catch { }
+  }, []);
+
+  useEffect(() => { fetchWishlistCount(); }, [fetchWishlistCount]);
+
+  const addToWishlist = useCallback(async (product, selectedWeightIndex = 0) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Login First!');
+      return;
+    }
+
+    const weightOption = product.weightOptions
+      ? product.weightOptions[selectedWeightIndex]
+      : { label: 'default', oldPrice: product.oldPrice, newPrice: product.newPrice };
+
+    try {
+      const res = await fetch('http://localhost:5000/api/wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          productId:   product.id,
+          name:        product.name,
+          brand:       product.brand,
+          image:       product.images[0],   // fix: images
+          oldPrice:    weightOption.oldPrice,
+          newPrice:    weightOption.newPrice,
+          weightLabel: weightOption.label,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) setWishlistCount(data.count);
+
+      setWishlistToastItem({
+        name:        product.name,
+        image:       product.images[0],    // fix: images
+        alreadyAdded: data.alreadyAdded || false,
+      });
+    } catch {
+      alert('Something went wrong, Try Again!');
+    }
+  }, []);
+
+  useEffect(() => {
+    getArea("http://localhost:5000/api/cities/Ahmedabad/areas");
+  }, []);
 
   const getArea = async (url) => {
     await axios.get(url).then((res) => {
@@ -70,7 +124,7 @@ function App() {
     });
   };
 
-  // Add item in cart
+  // Cart functions
   const addToCart = (product, selectedWeightIndex) => {
     const weightOption = product.weightOptions
       ? product.weightOptions[selectedWeightIndex]
@@ -81,14 +135,12 @@ function App() {
     setCartItems(prev => {
       const existing = prev.find(item => item.cartKey === cartKey);
       if (existing) {
-        // Already hai toh quantity badhao
         return prev.map(item =>
           item.cartKey === cartKey
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      // New item add
       return [...prev, {
         cartKey,
         id: product.id,
@@ -103,13 +155,12 @@ function App() {
     });
 
     setToastItem({
-        name: product.name,
-        image: product.images[0],
-        weightLabel: weightOption.label,
+      name: product.name,
+      image: product.images[0],
+      weightLabel: weightOption.label,
     });
   };
 
-  // Quantity update karo
   const updateQuantity = (cartKey, delta) => {
     setCartItems(prev =>
       prev.map(item =>
@@ -120,15 +171,11 @@ function App() {
     );
   };
 
-  // Item remove karo
   const removeFromCart = (cartKey) => {
     setCartItems(prev => prev.filter(item => item.cartKey !== cartKey));
   };
 
-  // Cart totals
-  const cartTotal = cartItems.reduce(
-    (sum, item) => sum + item.newPrice * item.quantity, 0
-  );
+  const cartTotal = cartItems.reduce((sum, item) => sum + item.newPrice * item.quantity, 0);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const values = {
@@ -140,37 +187,46 @@ function App() {
     updateQuantity,
     removeFromCart,
     cartTotal,
-    cartCount
+    cartCount,
+    // Wishlist — ye teeno pehle missing the
+    wishlistCount,
+    setWishlistCount,
+    addToWishlist,
+    fetchWishlistCount,
   };
 
   return (
-      <BrowserRouter>
-        <MyContext.Provider value={values}>
-          {isLoading && <PageLoader fadeOut={fadeOut} />}
+    <BrowserRouter>
+      <MyContext.Provider value={values}>
+        {isLoading && <PageLoader fadeOut={fadeOut} />}
 
-          <Header />
-          <Routes>
-            <Route path='/' exact = {true} element={<Home />} />
-            <Route path="/cat/:id" element={<Listing />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route exact={true} path="/product/:id" element = {<ProductDetails/>} />
-            <Route path="/spices" element={<SpicesPage />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/contact" element={<ContactPage />} />
-            {/* <Route path="/admin" element={<CharbhujaAdmin />} /> */}
-          </Routes>
-          <Footer/>
+        <Header />
+        <Routes>
+          <Route path='/' exact={true} element={<Home />} />
+          <Route path="/cat/:id" element={<Listing />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route exact={true} path="/product/:id" element={<ProductDetails />} />
+          <Route path="/spices" element={<SpicesPage />} />
+          <Route path="/grocery" element={<GroceryPage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+        </Routes>
+        <Footer />
 
-          <CartToast
-                item={toastItem}
-                onClose={() => setToastItem(null)}
-          />
-          
-        </MyContext.Provider>
-      </BrowserRouter>
+        <CartToast
+          item={toastItem}
+          onClose={() => setToastItem(null)}
+        />
+        <WishlistToast
+          item={wishlistToastItem}
+          onClose={() => setWishlistToastItem(null)}
+        />
+
+      </MyContext.Provider>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-export {MyContext}
+export { MyContext };

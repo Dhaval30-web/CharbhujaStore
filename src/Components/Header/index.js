@@ -4,6 +4,7 @@ import CityDropdown from '../CityDropdown/Index';
 import Button from '@mui/material/Button';
 import { FaRegUser } from "react-icons/fa6";
 import { BsBagHeart } from "react-icons/bs";
+import { FaHeart } from "react-icons/fa";
 import SearchBox from './SearchBox';
 import Navigation from './Navigation';
 import { useContext, useState } from 'react';
@@ -13,10 +14,10 @@ import MiniCart from '../MiniCart';
 const Header = () => {
 
     const context = useContext(MyContext);
-    const navigate = useNavigate();  // ← ADD
+    const navigate = useNavigate();
     const [showMiniCart, setShowMiniCart] = useState(false);
 
-    const user = JSON.parse(localStorage.getItem('user'));  // ← ADD
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const handleProfileClick = () => {
         if (user) {
@@ -68,6 +69,26 @@ const Header = () => {
                                             <FaRegUser />
                                         )}
                                     </Button>
+
+                                    <div className='position-relative mr-3'
+                                        style={{cursor: 'pointer'}}
+                                        onClick={()=> navigate('/wishlist')}    
+                                    >
+                                        <Button className='circle'>
+                                            <FaHeart style={{
+                                                color: context.wishlistCount > 0 ? '#e91e8c' : 'inherit'
+                                            }} />
+                                        </Button>
+
+                                        {context.wishlistCount > 0 && (
+                                            <span
+                                                className='count d-flex align-items-center justify-content-center'
+                                                style={{ background: '#e91e8c' }}
+                                            >
+                                                {context.wishlistCount}
+                                            </span>
+                                        )}
+                                    </div>
 
                                     <div className='ml-auto cartTab d-flex align-items-center position-relative'
                                         onMouseEnter={() => setShowMiniCart(true)}

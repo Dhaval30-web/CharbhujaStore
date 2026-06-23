@@ -16,6 +16,18 @@ const SPICE_SUBCATEGORIES = [
     { key: 'dry-aromatics',   label: 'Dry Aromatics'   },
 ];
 
+const GROCERY_SUBCATEGORIES = [
+    { key: 'daal',                 label: 'Daal' },
+    { key: 'anaj',                 label: 'Anaj' },
+    { key: 'atta-flour',           label: 'Atta & Flour' },
+    { key: 'oil-ghee',             label: 'Oil & Ghee' },
+    { key: 'condiments',           label: 'Condiments' },
+    { key: 'snacks-namkeen',       label: 'Snacks & Namkeen' },
+    { key: 'dry-fruits-nuts',      label: 'Dry Fruits & Nuts' },
+    { key: 'tea-coffee',           label: 'Tea & Coffee' },
+    { key: 'household-essentials', label: 'Household Essentials' },
+];
+
 const checkboxSx = {
     color: '#6f5a8e',
     '&.Mui-checked': { color: '#6f5a8e' },
@@ -58,7 +70,6 @@ const Sidebar = ({ activePage, activeSub, onSubChange }) => {
                                     />
                                 </div>
 
-                                {/* Subcategories — sirf spices page pe dikhao */}
                                 {activePage === 'spices' && (
                                     <ul style={{
                                         listStyle: 'none', paddingLeft: '32px',
@@ -87,7 +98,56 @@ const Sidebar = ({ activePage, activeSub, onSubChange }) => {
                                 )}
                             </li>
 
-                            <li><FormControlLabel control={<Checkbox sx={checkboxSx} />} label="Grocery"  /></li>
+                            {/* Grocery */}
+                            <li>
+                                <div onClick={() => navigate('/grocery')}
+                                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                                    <FormControlLabel
+                                        style={{ margin: 0 }}
+                                        control={
+                                            <Checkbox
+                                                sx={checkboxSx}
+                                                checked={activePage === 'grocery'}
+                                                onClick={(e) => e.stopPropagation()}
+                                            />
+                                        }
+                                        label={
+                                            <span style={{
+                                                fontWeight: activePage === 'grocery' ? '700' : '400',
+                                                color:      activePage === 'grocery' ? '#6f5a8e' : 'inherit'
+                                            }}>Grocery</span>
+                                        }
+                                    />
+                                </div>
+
+                                {activePage === 'grocery' && (
+                                    <ul style={{
+                                        listStyle: 'none', paddingLeft: '32px',
+                                        margin: '4px 0 6px', borderLeft: '2px solid #e0d6f0'
+                                    }}>
+                                        {GROCERY_SUBCATEGORIES.map(sub => (
+                                            <li key={sub.key}
+                                                onClick={() => onSubChange(sub.key)}
+                                                style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '4px 0' }}>
+                                                <span style={{
+                                                    width: '8px', height: '8px', borderRadius: '50%',
+                                                    background: activeSub === sub.key ? '#6f5a8e' : '#ccc',
+                                                    marginRight: '8px', flexShrink: 0, transition: 'background 0.2s'
+                                                }} />
+                                                <span style={{
+                                                    fontSize: '13px',
+                                                    color:      activeSub === sub.key ? '#6f5a8e' : '#555',
+                                                    fontWeight: activeSub === sub.key ? '600' : '400',
+                                                    transition: 'color 0.2s'
+                                                }}>
+                                                    {sub.label}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </li>
+                            
                             <li><FormControlLabel control={<Checkbox sx={checkboxSx} />} label="Food"     /></li>
                             <li><FormControlLabel control={<Checkbox sx={checkboxSx} />} label="Perfumes" /></li>
                         </ul>

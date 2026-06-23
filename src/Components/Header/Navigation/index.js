@@ -51,18 +51,17 @@ const Navigation = ()=> {
                                             </div>
                                         </li>
 
-                                        <li><Link to="/"><Button>Grocery <FaAngleRight className='ml-auto'/>
+                                        <li><Link to="/grocery"><Button>Grocery <FaAngleRight className='ml-auto'/>
                                             </Button></Link>
                                             <div className='submenu'>
-                                                <Link to="/"><Button>Daal</Button></Link>
-                                                <Link to="/"><Button>Anaj</Button></Link>
-                                                <Link to="/"><Button>Atta & Flour</Button></Link>
-                                                <Link to="/"><Button>Oil & Ghee</Button></Link>
-                                                <Link to="/"><Button>Condiments</Button></Link>
-                                                <Link to="/"><Button>Snacks & Namkeen</Button></Link>
-                                                <Link to="/"><Button>Dry Fruits & Nuts</Button></Link>
-                                                <Link to="/"><Button>Tea & Coffee</Button></Link>
-                                                <Link to="/"><Button>Household Essentials</Button></Link>
+                                                <Link to="/grocery?sub=daal"><Button>Daal</Button></Link>
+                                                <Link to="/grocery?sub=anaj"><Button>Anaj</Button></Link>
+                                                <Link to="/grocery?sub=atta-flour"><Button>Atta & Flour</Button></Link>
+                                                <Link to="/grocery?sub=oil-ghee"><Button>Oil & Ghee</Button></Link>
+                                                <Link to="/grocery?sub=condiments"><Button>Condiments</Button></Link>
+                                                <Link to="/grocery?sub=snacks-namkeen"><Button>Snacks & Namkeen</Button></Link>
+                                                <Link to="/grocery?sub=dry-fruits-nuts"><Button>Dry Fruits & Nuts</Button></Link>
+                                                <Link to="/grocery?sub=tea-coffee"><Button>Tea & Coffee</Button></Link>
                                             </div>
                                         </li>
 
@@ -110,17 +109,16 @@ const Navigation = ()=> {
                                 </li>
 
                                 <li className='list-inline-item'>
-                                    <Link to="/"><Button>Grocery</Button></Link>
+                                    <Link to="/grocery"><Button>Grocery</Button></Link>
                                     <div className='submenu shadow'>
-                                        <Link to="/"><Button>Daal</Button></Link>
-                                        <Link to="/"><Button>Anaj</Button></Link>
-                                        <Link to="/"><Button>Atta & Flour</Button></Link>
-                                        <Link to="/"><Button>Oil & Ghee</Button></Link>
-                                        <Link to="/"><Button>Condiments</Button></Link>
-                                        <Link to="/"><Button>Snacks & Namkeen</Button></Link>
-                                        <Link to="/"><Button>Dry Fruits & Nuts</Button></Link>
-                                        <Link to="/"><Button>Tea & Coffee</Button></Link>
-                                        <Link to="/"><Button>Household Essentials</Button></Link>
+                                        <Link to="/grocery?sub=daal"><Button>Daal</Button></Link>
+                                        <Link to="/grocery?sub=anaj"><Button>Anaj</Button></Link>
+                                        <Link to="/grocery?sub=atta-flour"><Button>Atta & Flour</Button></Link>
+                                        <Link to="/grocery?sub=oil-ghee"><Button>Oil & Ghee</Button></Link>
+                                        <Link to="/grocery?sub=condiments"><Button>Condiments</Button></Link>
+                                        <Link to="/grocery?sub=snacks-namkeen"><Button>Snacks & Namkeen</Button></Link>
+                                        <Link to="/grocery?sub=dry-fruits-nuts"><Button>Dry Fruits & Nuts</Button></Link>
+                                        <Link to="/grocery?sub=tea-coffee"><Button>Tea & Coffee</Button></Link>
                                     </div>
                                 </li>
 

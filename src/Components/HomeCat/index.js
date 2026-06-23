@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import Meggi from '../../Assets/Images/Products/Meggi.png';
 import Oats from '../../Assets/Images/Products/Oats.png';
 import Toor from '../../Assets/Images/Products/Toor.png';
-import Aata from '../../Assets/Images/Products/Aata.png';
+import Aata from '../../Assets/Images/Products/22.png';
 import Yippee from '../../Assets/Images/Products/Yippee.png';
 import Harpic from '../../Assets/Images/Products/Harpic.png';
 import Basmati from '../../Assets/Images/Products/Basmati.png';

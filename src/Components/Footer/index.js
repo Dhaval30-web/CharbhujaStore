@@ -54,15 +54,14 @@ const Footer = () => {
                         <div className="col">
                             <h5>Grocery</h5>
                             <ul>
-                                <li><Link to = "#">Daal</Link></li>
-                                <li><Link to = "#">Anaj</Link></li>
-                                <li><Link to = "#">Aata & Flour</Link></li>
-                                <li><Link to = "#">Oil & Ghee</Link></li>
-                                <li><Link to = "#">Condiments</Link></li>
-                                <li><Link to = "#">Snacks & Namkeen</Link></li>
-                                <li><Link to = "#">Dry Fruits & Nuts</Link></li>
-                                <li><Link to = "#">Tea & Coffee</Link></li>
-                                <li><Link to = "#">Household Essentials</Link></li>
+                                <li><Link to = "grocery?sub=daal">Daal</Link></li>
+                                <li><Link to = "grocery?sub=anaj">Anaj</Link></li>
+                                <li><Link to = "grocery?sub=atta-flour">Aata & Flour</Link></li>
+                                <li><Link to = "grocery?sub=oil-ghee">Oil & Ghee</Link></li>
+                                <li><Link to = "grocery?sub=condiments">Condiments</Link></li>
+                                <li><Link to = "rocery?sub=snacks-namkeen">Snacks & Namkeen</Link></li>
+                                <li><Link to = "grocery?sub=dry-fruits-nuts">Dry Fruits & Nuts</Link></li>
+                                <li><Link to = "grocery?sub=tea-coffee">Tea & Coffee</Link></li>
                             </ul>
                         </div>
 
