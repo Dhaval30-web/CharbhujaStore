@@ -76,14 +76,14 @@ const Header = () => {
                                     >
                                         <Button className='circle'>
                                             <FaHeart style={{
-                                                color: context.wishlistCount > 0 ? '#e91e8c' : 'inherit'
+                                                color: context.wishlistCount > 0 ? '#695588' : 'inherit'
                                             }} />
                                         </Button>
 
                                         {context.wishlistCount > 0 && (
                                             <span
                                                 className='count d-flex align-items-center justify-content-center'
-                                                style={{ background: '#e91e8c' }}
+                                                // style={{ background: '#695588' }}
                                             >
                                                 {context.wishlistCount}
                                             </span>

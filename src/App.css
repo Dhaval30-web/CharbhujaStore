@@ -181,6 +181,12 @@ header .part3 .circle svg {
     color: #fff;
     height: 20px;
     width: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px #fff;
 }
 
 .loctionModal .MuiPaper-elevation{
@@ -1890,7 +1896,7 @@ footer .linksWrap ul li a:hover {
 }
 
 .cartPrice { font-size: 14px; color: #555; font-weight: 500; }
-.cartSubtotal { font-size: 14px; font-weight: 700; color: #7b2ff7; }
+.cartSubtotal { font-size: 14px; font-weight: 700; color: #695588; }
 
 .cartQty {
   display: flex;
